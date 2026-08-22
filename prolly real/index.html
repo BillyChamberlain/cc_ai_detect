@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  />
+  <meta name="theme-color" content="#030306" />
+  <title>Presence</title>
+
+  <link rel="stylesheet" href="style.css" />
+
+  <!-- ONNX Runtime Web -->
+  <script src="https://cdn.jsdelivr.net/npm/onnxruntime-web/dist/ort.min.js"></script>
+</head>
+
+<body>
+  <main id="app">
+    <video
+      id="camera"
+      autoplay
+      muted
+      playsinline
+      aria-hidden="true"
+    ></video>
+
+    <canvas id="visualCanvas"></canvas>
+    <canvas id="inferenceCanvas" aria-hidden="true"></canvas>
+
+    <section id="intro" class="intro">
+      <p class="eyebrow">PERCEPTION INTERFACE</p>
+
+      <h1 id="statusTitle">A signal is forming</h1>
+
+      <p id="statusText">
+        The visual field will form before perception begins.
+      </p>
+
+      <button id="startButton" type="button">
+        Begin experience
+      </button>
+    </section>
+
+    <div id="hud" class="hud" aria-live="polite">
+      <span id="phaseLabel">Stage 01 · Drawing blur</span>
+      <span id="modelLabel">Camera offline</span>
+    </div>
+
+    <div class="grain"></div>
+    <div class="vignette"></div>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>

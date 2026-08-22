@@ -1,0 +1,161 @@
+:root {
+  color-scheme: dark;
+  --ink: #dceeff;
+  --muted: rgba(202, 224, 255, 0.58);
+  --line: rgba(170, 213, 255, 0.25);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  width: 100%;
+  min-height: 100%;
+  margin: 0;
+  background: #05060d;
+  overflow: hidden;
+}
+
+body {
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont,
+    "Segoe UI", sans-serif;
+}
+
+.experience,
+canvas {
+  display: block;
+  width: 100vw;
+  height: 100vh;
+}
+
+canvas {
+  cursor: crosshair;
+  touch-action: none;
+}
+
+.interface {
+  position: fixed;
+  z-index: 2;
+  top: clamp(1.25rem, 4vw, 3rem);
+  left: clamp(1.25rem, 4vw, 3rem);
+  max-width: min(30rem, calc(100vw - 2.5rem));
+  pointer-events: none;
+  user-select: none;
+  text-shadow: 0 1px 18px rgba(0, 0, 0, 0.9);
+}
+
+.eyebrow {
+  margin: 0 0 0.8rem;
+  color: var(--muted);
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.23em;
+}
+
+h1 {
+  margin: 0;
+  color: var(--ink);
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(1.65rem, 4vw, 3.3rem);
+  font-weight: 400;
+  letter-spacing: 0.06em;
+}
+
+.interface p:not(.eyebrow) {
+  max-width: 28rem;
+  margin: 0.85rem 0 0;
+  color: var(--muted);
+  font-size: clamp(0.78rem, 1.4vw, 0.95rem);
+  line-height: 1.55;
+}
+
+#instruction {
+  color: rgba(220, 238, 255, 0.78);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.corner-mark {
+  position: fixed;
+  z-index: 2;
+  width: 2rem;
+  height: 2rem;
+  opacity: 0.55;
+  pointer-events: none;
+}
+
+.corner-mark::before,
+.corner-mark::after {
+  position: absolute;
+  content: "";
+  background: var(--line);
+}
+
+.corner-mark::before {
+  width: 100%;
+  height: 1px;
+}
+
+.corner-mark::after {
+  width: 1px;
+  height: 100%;
+}
+
+.top-left {
+  top: 1.5rem;
+  left: 1.5rem;
+}
+
+.top-right {
+  top: 1.5rem;
+  right: 1.5rem;
+  transform: rotate(90deg);
+}
+
+.bottom-left {
+  bottom: 1.5rem;
+  left: 1.5rem;
+  transform: rotate(-90deg);
+}
+
+.bottom-right {
+  right: 1.5rem;
+  bottom: 1.5rem;
+  transform: rotate(180deg);
+}
+
+@media (max-width: 600px) {
+  .interface {
+    top: 1.4rem;
+    left: 1.4rem;
+  }
+
+  .corner-mark {
+    width: 1.3rem;
+    height: 1.3rem;
+  }
+
+  .top-left,
+  .top-right {
+    top: 1rem;
+  }
+
+  .bottom-left,
+  .bottom-right {
+    bottom: 1rem;
+  }
+
+  .top-left,
+  .bottom-left {
+    left: 1rem;
+  }
+
+  .top-right,
+  .bottom-right {
+    right: 1rem;
+  }
+}
